@@ -9,17 +9,18 @@ interface IMealProps {
   rating: TCounts
 }
 
-export function Meal({name, img,rating} : IMealProps) {const myButtons = ["test1", "test2", "test3"];
+export function Meal({ name, img, rating }: IMealProps) {
+  const myButtons = ["test1", "test2", "test3"];
   const starsArr = [];
 
   for (let i = 0; i < 5; i++) {
     const isActive = i < rating;
-    starsArr.push(<Icon name={EIcons.star}  active={isActive} />);
+    starsArr.push(<Icon key={i} name={EIcons.star} size={24} active={isActive} />);
   }
 
   return (
-    <div className="flex shrink-0 items-center gap-x-2">
-      <div className="w-18 h-18">
+    <div className="w-[218px] flex shrink-0 items-center gap-x-2">
+      <div className="w-18 h-18 shrink-0">
         <Image
           className="relative block"
           src={img}

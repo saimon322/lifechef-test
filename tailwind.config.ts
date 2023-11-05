@@ -12,7 +12,10 @@ const config: Config = {
       colors: {
         base: '#252728',
         primary: '#34A34F',
-        'neutrals': {
+        green: '#0A6629',
+        brown: '#744500',
+        neutrals: {
+          100: '#BEC1C4',
           300: '#E1E3E5',
           400: '#BEC1C4',
           500: '#87898C',

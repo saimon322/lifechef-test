@@ -13,17 +13,17 @@ export function MealsList() {
   const meals: IMealProps[] = [
     {
       name: "Morrocan Chicken",
-      img: "/meal-morrocan-chicken.png",
+      img: "/img/meal-morrocan-chicken.png",
       rating: 3
     },
     {
       name: "Couscous Pilaf",
-      img: "/meal-couscous-pilaf.png",
+      img: "/img/meal-couscous-pilaf.png",
       rating: 3
     },
     {
       name: "Turkey Meatloaf",
-      img: "/meal-turkey-meatloaf.png",
+      img: "/img/meal-turkey-meatloaf.png",
       rating: 3
     },
   ]
@@ -31,7 +31,7 @@ export function MealsList() {
   return (
     <div className="flex flex-col gap-4">
       {meals.map((meal: IMealProps, index) =>
-        <div className="flex items-center gap-x-8">
+        <div key={index} className="flex items-center gap-x-8">
           <Meal
             img={meal.img}
             name={meal.name}
@@ -39,7 +39,7 @@ export function MealsList() {
           />
           <input
             type="text"
-            className="w-full h-14 p-4 border-1.5 border-neutrals-400 text-neutral-500 rounded-lg outline-none focus:border-base"
+            className="grow h-14 p-4 border-1.5 border-neutrals-400 rounded-lg outline-none focus:border-base"
             placeholder="Your thoughts about the component">
           </input>
         </div>
