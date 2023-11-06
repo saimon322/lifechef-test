@@ -1,3 +1,4 @@
+import { useFormContext } from 'react-hook-form';
 import { Meal } from './Meal';
 
 type TCounts = 1 | 2 | 3 | 4 | 5;
@@ -9,6 +10,7 @@ interface IMealProps {
 }
 
 export function MealsList() {
+  const { register } = useFormContext();
 
   const meals: IMealProps[] = [
     {
@@ -39,9 +41,11 @@ export function MealsList() {
           />
           <input
             type="text"
-            name="componentComment"
-            className="grow h-14 p-4 border-1.5 border-neutrals-400 rounded-lg outline-none focus:border-base"
-            placeholder="Your thoughts about the component">
+            className="grow h-14 p-4 border-1.5 bg-white dark:bg-base border-neutrals-400 rounded-lg outline-none focus:border-base dark:focus:border-white"
+            placeholder="Your thoughts about the component"
+            {...register(`component${index}Review`)
+          }
+          >
           </input>
         </div>
       )}
