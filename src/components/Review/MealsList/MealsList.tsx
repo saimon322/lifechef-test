@@ -39,6 +39,7 @@ export function MealsList() {
           />
           <input
             type="text"
+            name="componentComment"
             className="grow h-14 p-4 border-1.5 border-neutrals-400 rounded-lg outline-none focus:border-base"
             placeholder="Your thoughts about the component">
           </input>

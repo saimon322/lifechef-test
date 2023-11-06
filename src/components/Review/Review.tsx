@@ -6,11 +6,10 @@ import { EIcons, Icon } from '../Icon';
 
 export function Review() {
   const ref = useRef<HTMLInputElement>(null);
-  const [value, setValue] = useState('');
+  const [showModal, setShowModal] = useState(false);
 
   function handleSubmit(event: FormEvent) {
     event.preventDefault();
-    console.log(value);
   }
 
   const handleClick = () => {
@@ -97,7 +96,7 @@ export function Review() {
             </div>
           </div>
 
-          <label className="flex items-center gap-3 cursor-pointer">          
+          <label className="flex items-center gap-3 cursor-pointer">
             <input
               type="checkbox"
               name="acceptance"
@@ -115,10 +114,49 @@ export function Review() {
 
         <button
           type="submit"
-          className="flex justify-center items-center w-full h-[52px] mt-10 p-4 rounded-lg text-white bg-green hover:bg-primary"
+          onClick={() => setShowModal(true)}
+          className="w-full leading-5 mt-10 p-4 rounded-lg text-white bg-green hover:bg-primary ease-linear transition-all duration-150"
         >
           Submit Review
         </button>
+
+        {showModal ? (
+          <>
+            <div
+              className="justify-center items-center flex overflow-x-hidden overflow-y-auto fixed inset-0 z-50 outline-none focus:outline-none"
+            >
+              <div className="relative w-auto my-6 mx-auto max-w-2xl">
+                {/*content*/}
+                <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
+                  {/*body*/}
+                  <div className="relative p-6 flex-auto">
+                    <p className="text-lg leading-relaxed">
+                      Are you sure you want to submit this form?
+                    </p>
+                  </div>
+                  {/*footer*/}
+                  <div className="flex items-center justify-end p-6 border-t border-solid border-blueGray-200 rounded-b">
+                    <button
+                      className="text-red-500 background-transparent px-6 py-2 text-sm outline-none focus:outline-none mr-2 ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Cancel
+                    </button>
+                    <button
+                      className="p-4 text-white bg-green hover:bg-primary text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none ease-linear transition-all duration-150"
+                      type="button"
+                      onClick={() => setShowModal(false)}
+                    >
+                      Ok
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="opacity-25 fixed inset-0 z-40 bg-black"></div>
+          </>
+        ) : null}
       </form>
     </div>
   );
